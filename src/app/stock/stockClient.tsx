@@ -94,7 +94,7 @@ export default function Stock() {
   return (
     <div className="items-center justify-items-center font-[family-name:var(--font-geist-sans)]">
       <ToastContainer></ToastContainer>
-      <h1 className="text-xl">Stock</h1>
+      <h1 className="text-xl mt-8">Stock</h1>
 
       {!stock && <Loading />}
       {stock && <StockList stock={stock} handleDeleteItem={handleDeleteItem} />}

@@ -14,7 +14,9 @@ export default function StockItem({ item, handleDeleteItem }: { readonly item: S
         <button onClick={() => router.push(`/stock/${item.uuid}`)}>Edit</button>
       </td>
       <td>
-        <button onClick={() => item.uuid && handleDeleteItem(item.uuid)}>Delete</button>
+        <button onClick={() => item.uuid && handleDeleteItem(item.uuid)} className="bg-red-500">
+          Delete
+        </button>
       </td>
     </tr>
   );

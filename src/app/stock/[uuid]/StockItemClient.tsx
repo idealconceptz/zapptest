@@ -13,12 +13,13 @@ const newStockItem = {
   description: "",
 };
 
-interface Errors {
+type Errors = {
+  uuid?: string;
   sku?: string;
   store?: string;
   quantity?: string;
   description?: string;
-}
+};
 
 export default function StockItem() {
   const [item, setItem] = useState<StockItemType>(newStockItem);
@@ -31,7 +32,6 @@ export default function StockItem() {
     const { name, value } = e.target;
     setItem((prevItem) => ({
       ...prevItem,
-      // [name]: name === "quantity" ? Number(value) : value,
       [name]: value,
     }));
   };

@@ -25,3 +25,60 @@ body {
     text-wrap: balance;
   }
 }
+
+button {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+input, select {
+  @apply border border-gray-300 rounded-md p-2;
+}
+a {
+  @apply text-blue-500 hover:text-blue-700;
+}
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+}
+p {
+  @apply mb-4;
+}
+table {
+  @apply w-full border-collapse;
+}
+th, td {
+  @apply border px-4 py-2;
+}
+ul {
+  @apply list-disc pl-5;
+}
+li {
+  @apply mb-2;
+}
+
+.error {
+  color: red;
+}
+@media (max-width: 768px) {
+  body {
+    @apply p-4;
+  }
+  table {
+    @apply block overflow-x-auto;
+  }
+  th, td {
+    @apply block text-left;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-gray-900 text-gray-100;
+  }
+  button {
+    @apply bg-blue-700 hover:bg-blue-600;
+  }
+  input {
+    @apply border-gray-600 bg-gray-800 text-gray-200;
+  }
+  a {
+    @apply text-blue-400 hover:text-blue-300;
+  }
+}     

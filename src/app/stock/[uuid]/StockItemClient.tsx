@@ -39,7 +39,7 @@ export default function StockItem() {
   const getItem = async (uuid: string) => {
     try {
       setWaiting(true);
-      const res: any = await fetch(`/api/stock/${uuid}`, {
+      const res = await fetch(`/api/stock/${uuid}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -94,7 +94,7 @@ export default function StockItem() {
       } else {
         toast.success("Item saved successfully");
       }
-    } catch (error: any) {
+    } catch (error) {
       toast.error(`Error: ${(error as Error).message}`);
     } finally {
       setWaiting(false);

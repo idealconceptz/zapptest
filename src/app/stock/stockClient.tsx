@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, SyntheticEvent } from "react";
+import { useState, useEffect, useRef } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import StockList from "./components/StockList";
 import { StockItemType } from "../types/StockItemType";
@@ -28,7 +28,7 @@ export default function Stock() {
     }
   };
 
-  const handleUploadStockCsv = async (e: SyntheticEvent) => {
+  const handleUploadStockCsv = async () => {
     if (!uploadFileRef.current?.files?.length) {
       toast.error("Please select a CSV file to upload.");
       return;
@@ -38,8 +38,6 @@ export default function Stock() {
       toast.error("Please upload a valid CSV file.");
       return;
     }
-    // const formData = new FormData();
-    // formData.append("file", file);
 
     const data = await file.text();
 
@@ -73,7 +71,7 @@ export default function Stock() {
       return;
     }
     try {
-      const res: any = await fetch(`/api/stock/${itemId}`, {
+      const res = await fetch(`/api/stock/${itemId}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });
@@ -84,7 +82,7 @@ export default function Stock() {
         toast.success("Item deleted successfully");
         getStock();
       }
-    } catch (error: any) {
+    } catch (error) {
       toast.error(`Error: ${(error as Error).message}`);
     }
   };

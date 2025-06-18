@@ -1,8 +1,7 @@
-// import { HttpStatusCode } from "axios";
 import { NextRequest, NextResponse } from "next/server";
 import { Database } from "@sqlitecloud/drivers";
 
-export async function GET(req: NextRequest, { params }: { params: Params }) {
+export async function GET(request: Request, { params }: { params: Promise<{ uuid: string }> }) {
   let db;
   try {
     const { uuid } = await params;
@@ -53,11 +52,7 @@ export async function PUT(req: NextRequest) {
   }
 }
 
-interface Params {
-  uuid: string;
-}
-
-export async function DELETE(req: NextRequest, { params }: { params: Params }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ uuid: string }> }) {
   const { uuid } = await params;
 
   if (!uuid) return NextResponse.json({ error: "UUID required" }, { status: 500 });
